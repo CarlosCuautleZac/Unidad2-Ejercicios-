@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model Unidad2Ejercicio3.Models.Presidente
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -11,49 +13,71 @@
         <p><a href="~/home/index">Presidentes de la República</a></p>
     </header>
     <main>
-        <h2 class="titulo">Benito Pablo Juárez García</h2>
+        <h2 class="titulo">@Model.Nombre</h2>
         <div class="informacion">
-            <img class="foto" src="~/presidentes/32.jpg">
+            <img class="foto" src="~/presidentes/@(Model.Id).jpg">
             <div class="datos">
                 <div class="fila1">
                     <div>
                         <h4>Fecha de Nacimiento:</h4>
-                        <a>Fecha de Nacimiento</a>
+                        <a>@if (Model.FechaNacimiento!=null)
+                            {
+                                @Model.FechaNacimiento.Value.ToShortDateString()
+                            }</a>
                     </div>
                     <div>
                         <h4>Fecha de Fallecimiento:</h4>
-                        <a>Fecha de  Defunción</a>
+                        <a>
+                            @if (Model.FechaFallecimiento != null)
+                            {
+                                @Model.FechaFallecimiento.Value.ToShortDateString()
+                                
+                            }
+                        </a>
                     </div>
                     <div>
                         <h4>Ciudad de Nacimiento:</h4>
-                        <a>Ciudad de Nacimiento</a>
+                        <a>@Model.CiudadNacimiento</a>
                     </div>
                     <div>
                         <h4>Estado:</h4>
-                        <a>Estado</a>
+                        <a>
+                            @if (Model.IdEstadoRepublicaNavigation != null)
+                            {
+                                @Model.IdEstadoRepublicaNavigation.Nombre;
+                                
+                            }
+                        </a>
                     </div>
                     <div>
                         <h4>Ocupación:</h4>
-                        <a>Ocupación</a>
+                        <a>@Model.Ocupacion</a>
                     </div>
                     <div>
                         <h4>Inicio de gobierno:</h4>
-                        <a>Inicio</a>
+                        <a>@Model.InicioGobierno</a>
                     </div>
                     <div>
                         <h4>Termino de gobierno:</h4>
-                        <a>Fin</a>
+                        <a>
+                            @if (Model.TerminoGobierno != null)
+                            {
+                                @Model.TerminoGobierno.Value.ToShortDateString()
+                                
+                            }
+                        </a>
                     </div>
                     <div>
                         <h4>Partido Político:</h4>
-                        <a><img src="~/partidos/1.jpg" height="20"> Partido</a>
+                        <a><img src="~/partidos/@(Model.IdPartidoPolitico).jpg" height="20"> @Model.IdPartidoPoliticoNavigation.Nombre</a>
+                        
                     </div>
                 </div>
             </div>
         </div>
         <hr>
         <h2 class="breve">Breve Historia</h2>
-        <p class="historia">Biografía</p>
+        <p class="historia">@Model.Biografia</p>
     </main>
     <footer>
         <div class="footer">

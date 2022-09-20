@@ -18,7 +18,7 @@
                 @foreach (var presidente in Model)
                 {
                     <li>
-                        <a href="~/home/biografia/">
+                        <a href="~/home/biografia/@presidente.Id">
                             <img src="~/presidentes/@(presidente.Id).jpg">
                             <p>
                                 @(presidente.Nombre)
