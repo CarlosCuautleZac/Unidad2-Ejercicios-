@@ -20,12 +20,15 @@ namespace Unidad2Ejercicio3.Controllers
         public IActionResult Biografia(int id)
         {
 
+
+
             //Carga explicita
-            var presidente = context.Presidentes.Include(x => x.IdPartidoPoliticoNavigation).Include(x => x.IdEstadoRepublicaNavigation).FirstOrDefault(x=>x.Id==id);
+            var presidente = context.Presidentes.Include(x => x.IdPartidoPoliticoNavigation).Include(x => x.IdEstadoRepublicaNavigation).FirstOrDefault(x => x.Id == id);
 
-
-
-            return View(presidente);
+            if (presidente != null)
+                return View(presidente);
+            else
+                return RedirectToAction("Index");
         }
     }
 }
