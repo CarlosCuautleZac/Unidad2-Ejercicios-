@@ -18,7 +18,7 @@
                 @foreach (var presidente in Model)
                 {
                     <li>
-                        <a href="~/home/biografia/@presidente.Id">
+                        <a href="~/home/biografia/@presidente.Nombre.Replace(" ","-")">
                             <img src="~/presidentes/@(presidente.Id).jpg">
                             <p>
                                 @(presidente.Nombre)
