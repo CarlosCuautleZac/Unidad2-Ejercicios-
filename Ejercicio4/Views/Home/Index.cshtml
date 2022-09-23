@@ -1,20 +1,19 @@
-﻿
+﻿@model IEnumerable<Ejercicio4.Models.ViewModels.IndexViewModel>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
 
-		<h1>Oferta Académica</h1>
+<h1>Oferta Académica</h1>
 
 
-		<ol class="rectangle-list">
-			<li><a href="~/home/datos">ISIC-2010-224 Ingeneria en Sistemas Computacionales</a></li>
-			<li><a href="#">ISIC-2010-224 Ingeneria en Sistemas Computacionales</a>
-			<li><a href="#">ISIC-2010-224 Ingeneria en Sistemas Computacionales</a>
-			<li><a href="#">ISIC-2010-224 Ingeneria en Sistemas Computacionales</a>
-			<li><a href="#">ISIC-2010-224 Ingeneria en Sistemas Computacionales</a>
-			<li><a href="#">ISIC-2010-224 Ingeneria en Sistemas Computacionales</a>
-		</ol>
+<ol class="rectangle-list">
+    @foreach (var carrera in Model)
+    {
+        <li><a href="~/home/datos">@carrera.Plan @carrera.Nombre.ToUpper()</a></li>
+    }
+</ol>
 
 
