@@ -19,13 +19,25 @@ namespace Ejercicio4.Controllers
             return View(carreras);
         }
 
-        public IActionResult Datos()
+        public IActionResult Datos(string id)
         {
-            return View();
+            if (string.IsNullOrWhiteSpace(id))
+                return RedirectToAction("Index");
+
+            string carrera = id.Replace("-", " ");
+
+            var carreraelegida = context.Carreras.FirstOrDefault(x => x.Nombre == carrera);
+
+            if(carreraelegida == null)
+                return RedirectToAction("Index");
+
+            return View(carreraelegida);
         }
 
-        public IActionResult Reticula()
+        public IActionResult Reticula(string id)
         {
+          
+
             return View();
         }
     }
