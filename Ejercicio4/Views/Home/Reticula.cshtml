@@ -1,4 +1,4 @@
-﻿
+﻿@model Ejercicio4.Models.ViewModels.ReticulaViewModel
 @{
     ViewData["Title"] = "Reticula";
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -6,13 +6,13 @@
 
 <h1>
     <a class="btn" href="javascript: history.back()">&#x25c0; Regresar</a>
-    Ing. en Sistemas Computacionales
+    @Model.Carrera
 </h1>
 
 
 
-<h2>ISIC-2010-220</h2>
-<h2>Total de creditos: 360</h2>
+<h2>@Model.Plan</h2>
+<h2>Total de creditos: @Model.CreditosTotales</h2>
 <section class="reticula">
     <table>
         <thead>
@@ -29,250 +29,23 @@
             </tr>
         </thead>
         <tr>
-            <td>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-            </td>
-            <td>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-            </td>
-            <td>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-            </td>
-            <td>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-            </td>
-            <td>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-            </td>
-            <td>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-            </td>
-            <td>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-            </td>
-            <td>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-            </td>
-            <td>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-                <div class="materia">
-                    <span class="clave">ABC-1234</span>
-                    <span class="nombre">INTRODUCCIÓN A LOS SISTEMAS COMPUTACIONALES</span>
-                    <span class="tpc">2-3-5</span>
-                </div>
-            </td>
+            @for (int i = 0; i < 9; i++)
+            {
+                <td>
+                    @if (Model.Semestres[i] != null)
+                    {
+                        @foreach (var vm in Model.Semestres[i])
+                        {
+                            <div class="materia">
+                                <span class="clave">@vm.Clave</span>
+                                <span class="nombre">@vm.Nombre</span>
+                                <span class="tpc">@(vm.HorasTeoricas)-@(vm.HorasPracticas)-@(Model.CreditosTotales)</span>
+                            </div>
+                        }
+                    }
 
+                </td>
+            }
         </tr>
 
     </table>

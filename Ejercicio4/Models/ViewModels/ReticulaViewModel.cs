@@ -10,7 +10,7 @@
 
         public ReticulaViewModel()
         {
-            Semestres = new IEnumerable<Materia>[9];
+            Semestres = new IEnumerable<Materia>[8];
         }
 
     }
