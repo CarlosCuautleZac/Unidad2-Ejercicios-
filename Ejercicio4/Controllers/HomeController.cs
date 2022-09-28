@@ -55,7 +55,7 @@ namespace Ejercicio4.Controllers
             vm.Plan = carrera.Plan;
             vm.CreditosTotales = carrera.Materia.Sum(x => x.Creditos);
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 9; i++)
             {
                 vm.Semestres[i] = carrera.Materia.Where(x => x.Semestre == i + 1).ToList();
             }
