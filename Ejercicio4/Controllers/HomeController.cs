@@ -10,6 +10,7 @@ namespace Ejercicio4.Controllers
     {
         mapacurricularContext context = new();
 
+        [Route("/")]
         public IActionResult Index()
         {
             //Aqui podemos llenar un viewmodel para no gstar memoria y solo usar lo que necesitamos
@@ -21,6 +22,7 @@ namespace Ejercicio4.Controllers
             return View(carreras);
         }
 
+        [Route("{id}")]
         public IActionResult Datos(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
@@ -36,6 +38,7 @@ namespace Ejercicio4.Controllers
             return View(carreraelegida);
         }
 
+        [Route("{id}/Reticula")]
         public IActionResult Reticula(string id)
         {
             if (string.IsNullOrWhiteSpace(id))//Si no me dicen el nombre de la carrera 
@@ -46,6 +49,8 @@ namespace Ejercicio4.Controllers
             id = id.Replace("-", " ");
 
             var carrera = context.Carreras.Include(x => x.Materia).FirstOrDefault(x => x.Nombre == id);
+
+
 
             if (carrera == null)
                 return RedirectToAction("Index");//Si no existe lo mandamos a index
