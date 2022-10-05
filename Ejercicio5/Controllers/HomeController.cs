@@ -18,5 +18,16 @@ namespace Ejercicio5.Controllers
         {
             return View();
         }
+
+        public IActionResult Pelicula()
+        {
+            return View();
+        }
+
+        public IActionResult Corto()
+        {
+            return View();
+        }
+
     }
 }
