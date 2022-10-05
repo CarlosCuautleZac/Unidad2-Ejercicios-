@@ -14,5 +14,9 @@ namespace Ejercicio5.Controllers
             return View();
         }
 
+        public IActionResult Cortos()
+        {
+            return View();
+        }
     }
 }
