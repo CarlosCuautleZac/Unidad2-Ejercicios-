@@ -1,90 +1,23 @@
-﻿
+﻿@model IEnumerable<Ejercicio5.Models.ViewModels.PeliculasViewModel>
 @{
     ViewData["Title"] = "Peliculas";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
 <div id="pelis">
-    <div>
-        <a class="imgPelicula" href="bichos.html">
-            <img src="~/images/portadas/2_p.jpg" alt="Bichos">
-        </a>
-        <div class="nombrePelicula">
-            <p>Bichos</p>
+
+   @foreach (var pelicula in Model)
+    {
+        <div>
+            <a class="imgPelicula" href="~/Pelicula/@(pelicula.Nombre.Replace(" ","-"))">
+                <img src="~/images/portadas/@(pelicula.Id)_p.jpg" alt="Bichos">
+            </a>
+            <div class="nombrePelicula">
+                <p>@pelicula.Nombre</p>
+            </div>
         </div>
-    </div>
-    <div>
-        <a class="imgPelicula" href="bichos.html">
-            <img src="~/images/portadas/2_p.jpg" alt="Bichos">
-        </a>
-        <div class="nombrePelicula">
-            <p>Bichos</p>
-        </div>
-    </div>
-    <div>
-        <a class="imgPelicula" href="bichos.html">
-            <img src="~/images/portadas/2_p.jpg" alt="Bichos">
-        </a>
-        <div class="nombrePelicula">
-            <p>Bichos</p>
-        </div>
-    </div>
-    <div>
-        <a class="imgPelicula" href="bichos.html">
-            <img src="~/images/portadas/2_p.jpg" alt="Bichos">
-        </a>
-        <div class="nombrePelicula">
-            <p>Bichos</p>
-        </div>
-    </div>
-    <div>
-        <a class="imgPelicula" href="bichos.html">
-            <img src="~/images/portadas/2_p.jpg" alt="Bichos">
-        </a>
-        <div class="nombrePelicula">
-            <p>Bichos</p>
-        </div>
-    </div>
-    <div>
-        <a class="imgPelicula" href="bichos.html">
-            <img src="~/images/portadas/2_p.jpg" alt="Bichos">
-        </a>
-        <div class="nombrePelicula">
-            <p>Bichos</p>
-        </div>
-    </div>
-    <div>
-        <a class="imgPelicula" href="bichos.html">
-            <img src="~/images/portadas/2_p.jpg" alt="Bichos">
-        </a>
-        <div class="nombrePelicula">
-            <p>Bichos</p>
-        </div>
-    </div>
-    <div>
-        <a class="imgPelicula" href="bichos.html">
-            <img src="~/images/portadas/2_p.jpg" alt="Bichos">
-        </a>
-        <div class="nombrePelicula">
-            <p>Bichos</p>
-        </div>
-    </div>
-    <div>
-        <a class="imgPelicula" href="bichos.html">
-            <img src="~/images/portadas/2_p.jpg" alt="Bichos">
-        </a>
-        <div class="nombrePelicula">
-            <p>Bichos</p>
-        </div>
-    </div>
-    <div>
-        <a class="imgPelicula" href="bichos.html">
-            <img src="~/images/portadas/2_p.jpg" alt="Bichos">
-        </a>
-        <div class="nombrePelicula">
-            <p>Bichos</p>
-        </div>
-    </div>
+    }
+   
 </div>
 
 
