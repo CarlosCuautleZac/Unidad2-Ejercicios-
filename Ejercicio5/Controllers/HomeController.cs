@@ -1,6 +1,7 @@
 ﻿using Ejercicio5.Models;
 using Ejercicio5.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ejercicio5.Controllers
 {
@@ -30,14 +31,35 @@ namespace Ejercicio5.Controllers
         [Route("/Pelicula/{id}")]
         public IActionResult Pelicula(string id)
         {
-            var pelicula = context.Pelicula.FirstOrDefault(x => x.Nombre==id.Replace("-"," "));
+
+            var pelicula = context.Pelicula.Include(x => x.Apariciones).Select(x => new PeliculaViewModel()
+            {
+                Id = x.Id,
+                Nombre=x.Nombre,
+                NombreOriginal = x.NombreOriginal,
+                Descripción =  x.Descripción,
+                FechaEstreno = x.FechaEstreno,
+            }).FirstOrDefault();
+
+
 
             if (pelicula == null)
             {
-                RedirectToAction("Peliculas");
+                return RedirectToAction("Peliculas");
+            }
+            else
+            {
+                var personajes = context.Personaje.Include(x => x.Apariciones).Where(x => x.Id == pelicula.Id);
+
+                foreach (var personaje in personajes)
+                {
+                    pelicula.Personajes.Add(personaje);
+                }
+
+                return View(pelicula);
             }
 
-            return View();
+            
         }
         [Route("Corto/{id}")]
         public IActionResult Corto()

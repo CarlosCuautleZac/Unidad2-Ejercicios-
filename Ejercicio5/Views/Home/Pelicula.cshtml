@@ -8,112 +8,38 @@
 <div id="principalVer">
 
     <div class="container">
-        <img class="image1" src="~/images/banners/2_b.jpg">
+        <img class="image1" src="~/images/banners/@(Model.Id)_b.jpg">
         <div class="overlay">
-            <img class="image2" src="~/images/banners/2_b.png">
+            <img class="image2" src="~/images/banners/@(Model.Id)_b.png">
         </div>
 
     </div>
 
     <div class="datosPelicula">
-        <h1>Bichos: Una aventura en miniatura</h1>
+        <h1>@Model.Nombre</h1>
         <h2>
-            A Bug's life • 25 nov. 1998</h2>
+           @Model.FechaEstreno</h2>
             <p>
-                Flick vive en una colonia de hormigas que, tras el invierno, es asaltada por un grupo de saltamontes. &#xC9;stos cada a&#xF1;o acuden al hormiguero y se llevan parte de la comida que recogen de cara a la &#xE9;poca de fr&#xED;o, como parte de un trato muy antiguo y que las hormigas, por miedo, a la otra parte, no se permiten transgredir.
+                @Model.Descripción
             </p>
 
 
             <div class="personajes">
                 <h2>Personajes</h2>
-                <div>
-                    <a>
-                        <img src="~/images/personajes/76.jpg" alt="Flik">
-                    </a>
-                    <div class="nombrePelicula">
-                        <p>Flik</p>
-                    </div>
-                </div>
-                <div>
-                    <a>
-                        <img src="~/images/personajes/76.jpg" alt="Flik">
-                    </a>
-                    <div class="nombrePelicula">
-                        <p>Flik</p>
-                    </div>
-                </div>
 
+            @foreach (var persona in Model.Apariciones)
+            {
                 <div>
                     <a>
-                        <img src="~/images/personajes/76.jpg" alt="Flik">
+                        <img src="~/images/personajes/@(Model.Id).jpg" alt="Flik">
                     </a>
                     <div class="nombrePelicula">
-                        <p>Flik</p>
+                        <p>@persona.IdPersonajeNavigation.Nombre</p>
                     </div>
                 </div>
+            }
 
-                <div>
-                    <a>
-                        <img src="~/images/personajes/76.jpg" alt="Flik">
-                    </a>
-                    <div class="nombrePelicula">
-                        <p>Flik</p>
-                    </div>
-                </div>
-
-                <div>
-                    <a>
-                        <img src="~/images/personajes/76.jpg" alt="Flik">
-                    </a>
-                    <div class="nombrePelicula">
-                        <p>Flik</p>
-                    </div>
-                </div>
-
-                <div>
-                    <a>
-                        <img src="~/images/personajes/76.jpg" alt="Flik">
-                    </a>
-                    <div class="nombrePelicula">
-                        <p>Flik</p>
-                    </div>
-                </div>
-
-                <div>
-                    <a>
-                        <img src="~/images/personajes/76.jpg" alt="Flik">
-                    </a>
-                    <div class="nombrePelicula">
-                        <p>Flik</p>
-                    </div>
-                </div>
-
-                <div>
-                    <a>
-                        <img src="~/images/personajes/76.jpg" alt="Flik">
-                    </a>
-                    <div class="nombrePelicula">
-                        <p>Flik</p>
-                    </div>
-                </div>
-
-                <div>
-                    <a>
-                        <img src="~/images/personajes/76.jpg" alt="Flik">
-                    </a>
-                    <div class="nombrePelicula">
-                        <p>Flik</p>
-                    </div>
-                </div>
-
-                <div>
-                    <a>
-                        <img src="~/images/personajes/76.jpg" alt="Flik">
-                    </a>
-                    <div class="nombrePelicula">
-                        <p>Flik</p>
-                    </div>
-                </div>
+               
 
             </div>
     </div>
