@@ -18,7 +18,7 @@ namespace Ejercicio5.Controllers
         [Route("Peliculas")]
         public IActionResult Peliculas()
         {
-            var peliculas = context.Pelicula.Select(x=> new PeliculasViewModel() { Id = x.Id, Nombre=x.Nombre}).OrderBy(x => x.Nombre);
+            var peliculas = context.Pelicula.Select(x => new PeliculasViewModel() { Id = x.Id, Nombre = x.Nombre }).OrderBy(x => x.Nombre);
 
             return View(peliculas);
         }
@@ -31,13 +31,14 @@ namespace Ejercicio5.Controllers
         [Route("/Pelicula/{id}")]
         public IActionResult Pelicula(string id)
         {
+            var nombre = id.Replace("_", " ");
 
-            var pelicula = context.Pelicula.Include(x => x.Apariciones).Select(x => new PeliculaViewModel()
+            var pelicula = context.Pelicula.Where(x=>x.Nombre==nombre).Select(x => new PeliculaViewModel()
             {
                 Id = x.Id,
-                Nombre=x.Nombre,
+                Nombre = x.Nombre,
                 NombreOriginal = x.NombreOriginal,
-                Descripción =  x.Descripción,
+                Descripción = x.Descripción,
                 FechaEstreno = x.FechaEstreno,
             }).FirstOrDefault();
 
@@ -49,17 +50,24 @@ namespace Ejercicio5.Controllers
             }
             else
             {
-                var personajes = context.Personaje.Include(x => x.Apariciones).Where(x => x.Id == pelicula.Id);
+                var personajes = context.Apariciones.Include(x => x.IdPersonajeNavigation).Where(x => x.IdPelicula == pelicula.Id);
 
                 foreach (var personaje in personajes)
                 {
-                    pelicula.Personajes.Add(personaje);
+                    Personaje p = new()
+                    {
+                        Id = personaje.IdPersonajeNavigation.Id,
+                        Nombre = personaje.IdPersonajeNavigation.Nombre
+                    };
+
+                    if (pelicula.Personajes != null)
+                        pelicula.Personajes.Add(p);
                 }
 
                 return View(pelicula);
             }
 
-            
+
         }
         [Route("Corto/{id}")]
         public IActionResult Corto()

@@ -9,7 +9,7 @@
    @foreach (var pelicula in Model)
     {
         <div>
-            <a class="imgPelicula" href="~/Pelicula/@(pelicula.Nombre.Replace(" ","-"))">
+            <a class="imgPelicula" href="~/Pelicula/@(pelicula.Nombre.Replace(" ","_"))">
                 <img src="~/images/portadas/@(pelicula.Id)_p.jpg" alt="Bichos">
             </a>
             <div class="nombrePelicula">
