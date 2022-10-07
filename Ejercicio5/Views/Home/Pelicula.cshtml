@@ -1,4 +1,4 @@
-﻿@model Ejercicio5.Models.ViewModels.PeliculaViewModel
+﻿@model Ejercicio5.Models.Pelicula
 
 @{
     ViewData["Title"] = "Pelicula";
@@ -27,14 +27,14 @@
             <div class="personajes">
                 <h2>Personajes</h2>
 
-            @foreach (var persona in Model.Personajes)
+            @foreach (var persona in Model.Apariciones)
             {
                 <div>
                     <a>
-                        <img src="~/images/personajes/@(persona.Id).jpg" alt="Flik">
+                        <img src="~/images/personajes/@(persona.IdPersonajeNavigation.Id).jpg" alt="Flik">
                     </a>
                     <div class="nombrePelicula">
-                        <p>@persona.Nombre</p>
+                        <p>@persona.IdPersonajeNavigation.Nombre</p>
                     </div>
                 </div>
             }

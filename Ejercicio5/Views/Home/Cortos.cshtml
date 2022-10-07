@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Ejercicio5.Models.Categoria>
 @{
     ViewData["Title"] = "Cortos";
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -8,56 +8,24 @@
 <div id="principalPeliculas">
 
     <div id="pelis">
-        <h1>Animaciones de Toy Story</h1>
-        <div>
-            <a class="imgPelicula" href="Pequeño.html">
-                <img src="~/images/portadas/6_pc.jpg" alt="Peque&#xF1;o Gran Buzz">
-            </a>
-            <div class="nombrePelicula">
-                <p>Peque&#xF1;o Gran Buzz</p>
-            </div>
-        </div>
-        <div>
-            <a class="imgPelicula" href="Pequeño.html">
-                <img src="~/images/portadas/6_pc.jpg" alt="Peque&#xF1;o Gran Buzz">
-            </a>
-            <div class="nombrePelicula">
-                <p>Peque&#xF1;o Gran Buzz</p>
-            </div>
-        </div>
-        <h1>Animaciones de Toy Story</h1>
-        <div>
-            <a class="imgPelicula" href="Pequeño.html">
-                <img src="~/images/portadas/6_pc.jpg" alt="Peque&#xF1;o Gran Buzz">
-            </a>
-            <div class="nombrePelicula">
-                <p>Peque&#xF1;o Gran Buzz</p>
-            </div>
-        </div>
-        <div>
-            <a class="imgPelicula" href="Pequeño.html">
-                <img src="~/images/portadas/6_pc.jpg" alt="Peque&#xF1;o Gran Buzz">
-            </a>
-            <div class="nombrePelicula">
-                <p>Peque&#xF1;o Gran Buzz</p>
-            </div>
-        </div>
-        <h1>Animaciones de Toy Story</h1>
-        <div>
-            <a class="imgPelicula" href="Pequeño.html">
-                <img src="~/images/portadas/6_pc.jpg" alt="Peque&#xF1;o Gran Buzz">
-            </a>
-            <div class="nombrePelicula">
-                <p>Peque&#xF1;o Gran Buzz</p>
-            </div>
-        </div>
-        <div>
-            <a class="imgPelicula" href="Pequeño.html">
-                <img src="~/images/portadas/6_pc.jpg" alt="Peque&#xF1;o Gran Buzz">
-            </a>
-            <div class="nombrePelicula">
-                <p>Peque&#xF1;o Gran Buzz</p>
-            </div>
-        </div>
+        
+        @foreach (var categoria in Model)
+        {
+            <h1>@categoria.Nombre</h1>
+
+            @foreach (var corto in categoria.Cortometraje)
+            {
+                <div>
+                    <a class="imgPelicula" href="~/corto/@corto.Nombre.Replace(" ","_")">
+                        <img src="~/images/portadas/@(corto.Id)_pc.jpg" alt="Peque&#xF1;o Gran Buzz">
+                    </a>
+                    <div class="nombrePelicula">
+                        <p>@corto.Nombre</p>
+                    </div>
+                </div>
+            }     
+
+        }
+
     </div>
 </div>
