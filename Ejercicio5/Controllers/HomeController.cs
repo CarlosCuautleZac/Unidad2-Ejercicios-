@@ -12,12 +12,14 @@ namespace Ejercicio5.Controllers
         [Route("/")]
         public IActionResult Index()
         {
+            ViewBag.Seccion = "Inicio";
             return View();
         }
 
         [Route("Peliculas")]
         public IActionResult Peliculas()
         {
+            ViewBag.Seccion = "Peliculas";
             var peliculas = context.Pelicula.Select(x => new PeliculasViewModel() { Id = x.Id, Nombre = x.Nombre }).OrderBy(x => x.Nombre);
 
             return View(peliculas);
@@ -26,25 +28,17 @@ namespace Ejercicio5.Controllers
         [Route("Cortos")]
         public IActionResult Cortos()
         {
-            var cortos = context.Categoria.Include(x => x.Cortometraje);
+            ViewBag.Seccion = "Cortos";
+            var categorias = context.Categoria.Include(x => x.Cortometraje).OrderBy(x => x.Nombre);
 
-            return View(cortos);
+            return View(categorias);
         }
         [Route("/Pelicula/{id}")]
         public IActionResult Pelicula(string id)
         {
             var nombre = id.Replace("_", " ");
 
-            //var pelicula = context.Pelicula.Where(x=>x.Nombre==nombre).Select(x => new PeliculaViewModel()
-            //{
-            //    Id = x.Id,
-            //    Nombre = x.Nombre,
-            //    NombreOriginal = x.NombreOriginal,
-            //    Descripción = x.Descripción,
-            //    FechaEstreno = x.FechaEstreno,
-            //}).FirstOrDefault();
-
-            var pelicula = context.Pelicula.Include(x=>x.Apariciones).ThenInclude(x=>x.IdPersonajeNavigation).FirstOrDefault(x => x.Nombre == nombre);
+            var pelicula = context.Pelicula.Include(x => x.Apariciones).ThenInclude(x => x.IdPersonajeNavigation).FirstOrDefault(x => x.Nombre == nombre);
 
 
             if (pelicula == null)
@@ -53,38 +47,25 @@ namespace Ejercicio5.Controllers
             }
             else
             {
-                //var personajes = context.Apariciones.Include(x => x.IdPersonajeNavigation).Where(x => x.IdPelicula == pelicula.Id);
-
-                //foreach (var personaje in personajes)
-                //{
-                //    Personaje p = new()
-                //    {
-                //        Id = personaje.IdPersonajeNavigation.Id,
-                //        Nombre = personaje.IdPersonajeNavigation.Nombre
-                //    };
-
-                //    if (pelicula.Personajes != null)
-                //        pelicula.Personajes.Add(p);
-                //}
-
                 return View(pelicula);
             }
 
 
         }
-        [Route("Corto/{id}")]
-        public IActionResult Corto(string id)
+        [Route("Corto/{nombre}")]
+        public IActionResult Corto(string nombre)
         {
+            if (string.IsNullOrWhiteSpace(nombre))
+                return RedirectToAction("Cortos");
 
-            var corto = context.Cortometraje.FirstOrDefault(x=>x.Nombre == id.Replace("_"," "));
-
+            var corto = context.Cortometraje.FirstOrDefault(x => x.Nombre == nombre.Replace("_", " "));
 
             if (corto == null)
                 return RedirectToAction("Cortos");
 
-                return View(corto);
+            return View(corto);
 
-            
+
         }
 
     }
