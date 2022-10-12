@@ -1,50 +1,19 @@
-﻿
+﻿@model IEnumerable<Ejercicio6.Models.ViewModels.IndexViewModel>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
 <ul>
-    <li>
-        <a href="~/home/villancico">Mi Burrito Sabanero</a>
-        <p>Esta canción fue compuesta en 1975 por el músico venezolano Hugo Blanco. ‘El burrito de Belén’, como también se le conoce, es uno de los villancicos más recordados por su ritmo y su letra.</p>
-    </li>
-    <li>
-        <a href="villancico.html">Mi Burrito Sabanero</a>
-        <p>Esta canción fue compuesta en 1975 por el músico venezolano Hugo Blanco. ‘El burrito de Belén’, como también se le conoce, es uno de los villancicos más recordados por su ritmo y su letra.</p>
-    </li>
-    <li>
-        <a href="villancico.html">Mi Burrito Sabanero</a>
-        <p>Esta canción fue compuesta en 1975 por el músico venezolano Hugo Blanco. ‘El burrito de Belén’, como también se le conoce, es uno de los villancicos más recordados por su ritmo y su letra.</p>
-    </li>
-    <li>
-        <a href="villancico.html">Mi Burrito Sabanero</a>
-        <p>Esta canción fue compuesta en 1975 por el músico venezolano Hugo Blanco. ‘El burrito de Belén’, como también se le conoce, es uno de los villancicos más recordados por su ritmo y su letra.</p>
-    </li>
-    <li>
-        <a href="villancico.html">Mi Burrito Sabanero</a>
-        <p>Esta canción fue compuesta en 1975 por el músico venezolano Hugo Blanco. ‘El burrito de Belén’, como también se le conoce, es uno de los villancicos más recordados por su ritmo y su letra.</p>
-    </li>
-    <li>
-        <a href="villancico.html">Mi Burrito Sabanero</a>
-        <p>Esta canción fue compuesta en 1975 por el músico venezolano Hugo Blanco. ‘El burrito de Belén’, como también se le conoce, es uno de los villancicos más recordados por su ritmo y su letra.</p>
-    </li>
-    <li>
-        <a href="villancico.html">Mi Burrito Sabanero</a>
-        <p>Esta canción fue compuesta en 1975 por el músico venezolano Hugo Blanco. ‘El burrito de Belén’, como también se le conoce, es uno de los villancicos más recordados por su ritmo y su letra.</p>
-    </li>
-    <li>
-        <a href="villancico.html">Mi Burrito Sabanero</a>
-        <p>Esta canción fue compuesta en 1975 por el músico venezolano Hugo Blanco. ‘El burrito de Belén’, como también se le conoce, es uno de los villancicos más recordados por su ritmo y su letra.</p>
-    </li>
-    <li>
-        <a href="villancico.html">Mi Burrito Sabanero</a>
-        <p>Esta canción fue compuesta en 1975 por el músico venezolano Hugo Blanco. ‘El burrito de Belén’, como también se le conoce, es uno de los villancicos más recordados por su ritmo y su letra.</p>
-    </li>
-    <li>
-        <a href="villancico.html">Mi Burrito Sabanero</a>
-        <p>Esta canción fue compuesta en 1975 por el músico venezolano Hugo Blanco. ‘El burrito de Belén’, como también se le conoce, es uno de los villancicos más recordados por su ritmo y su letra.</p>
-    </li>
+    @foreach (var villancico in Model)
+    {
+        <li>
+            <a href="~/home/villancico">@villancico.Nombre</a>
+            <p>@villancico.Informacion</p>
+        </li>
+    }
+
 </ul>
 
 
