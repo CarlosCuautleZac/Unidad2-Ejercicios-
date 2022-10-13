@@ -12,7 +12,7 @@ namespace Ejercicio6.Controllers
         {
             var villancicos = context.Villancicos.Select(x => new IndexViewModel
             {
-                Nombre = x.Nombre,
+                Nombre = x.Nombre.Trim(),
                 Informacion = x.Información
             }).OrderBy(x=>x.Nombre);
 
@@ -21,13 +21,29 @@ namespace Ejercicio6.Controllers
             return View(villancicos);
         }
 
-        public IActionResult Villancico()
+        public IActionResult Villancico(string id)
         {
-            return View();
+
+
+            var villancicoconespacios = id.Replace("-", " ");
+            var villancico = context.Villancicos.Select(x=> new VillancicoViewModel()
+            {
+                Nombre=x.Nombre,
+                Año=x.Anyo,
+                Compositor=x.Compositor,
+                VideoUrl=x.VideoUrl
+            }).FirstOrDefault(x=>x.Nombre==villancicoconespacios);
+
+            if (villancico == null)
+                return RedirectToAction("Index");
+            return View(villancico);
         }
 
-        public IActionResult VillancicoLetra()
+        public IActionResult VillancicoLetra(string id)
         {
+           
+
+
             return View();
         }
     }

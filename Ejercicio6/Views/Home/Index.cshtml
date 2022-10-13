@@ -9,7 +9,7 @@
     @foreach (var villancico in Model)
     {
         <li>
-            <a href="~/home/villancico">@villancico.Nombre</a>
+            <a href="~/home/villancico/@villancico.Nombre.Replace(" ","-")">@villancico.Nombre</a>
             <p>@villancico.Informacion</p>
         </li>
     }

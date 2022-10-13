@@ -2,7 +2,7 @@
 {
     public class IndexViewModel
     {
-        public string? Nombre { get; set; }
-        public string? Informacion { get; set; }
+        public string Nombre { get; set; } = "";
+        public string Informacion { get; set; } = "";
     }
 }

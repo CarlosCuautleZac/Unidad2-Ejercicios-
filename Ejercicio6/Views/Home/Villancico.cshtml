@@ -1,18 +1,18 @@
-﻿
+﻿@model Ejercicio6.Models.ViewModels.VillancicoViewModel
 @{
     ViewData["Title"] = "Villancico";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
 <div class="menu">
-    <a href="~/home/villancico" class="active">Video</a>
-    <a href="~/home/villancicoletra">Letra</a>
+    <a href="~/home/villancico/@Model.Nombre.Replace(" ","-")" class="active">Video</a>
+    <a href="~/home/villancicoletra/@Model.Nombre.Replace(" ","-")">Letra</a>
     <a href="~/home/index">Otros villancicos</a>
 </div>
 <div class="card">
-    <h2>Mi Burrito Sabanero</h2>
-    <h3>Hugo Blanco, 1972</h3>
+    <h2>@Model.Nombre</h2>
+    <h3>@Model.Compositor, @Model.Año</h3>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/lJawRaON8h0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="@Model.VideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
